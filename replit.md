@@ -1,44 +1,39 @@
-# [Project name]
+# Tribo Hooponopower — Página de Vendas
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Página de vendas da campanha "Jornada Emagrecendo de Dentro Para Fora" da Tribo Hooponopower, direcionando para o checkout na Hotmart.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- `pnpm --filter @workspace/tribo-vendas run dev` — inicia a página de vendas (porta atribuída automaticamente)
+- `pnpm run typecheck` — typecheck completo em todos os pacotes
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- Frontend: React + Vite + Tailwind CSS
+- Animações: Framer Motion
+- Roteamento: Wouter
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
-
-## Architecture decisions
-
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Página principal: `artifacts/tribo-vendas/src/pages/SalesPage.tsx`
+- Tema/cores: `artifacts/tribo-vendas/src/index.css`
+- Imagens: `attached_assets/` (foto do casal e Mapa Personalizado)
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Página de vendas de uma única rota (`/`) para a Tribo Hooponopower. Campanha temática de emagrecimento emocional — "Parar de descontar emoções na comida e começar a perder peso sem sofrimento". Todos os CTAs direcionam para `https://hooponoponodojeitocerto.com.br/tribo`.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Sem pixel do Meta Ads / Facebook na página
+- Checkout via Hotmart: https://hooponoponodojeitocerto.com.br/tribo
+- Design inspirado no visual do Mapa Personalizado: roxo escuro profundo, dourado, tipografia Playfair Display
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- As imagens devem ser importadas via alias `@assets/` (não via `attached_assets/` diretamente em URLs)
+- Qualquer `@import url(...)` no `index.css` deve ser a primeira linha do arquivo (antes do `@import "tailwindcss"`)
 
 ## Pointers
 
