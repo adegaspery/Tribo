@@ -5,30 +5,31 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import { mockupPreviewPlugin } from "./mockupPreviewPlugin";
 
-const rawPort = process.env.PORT;
+// Use environment variables if provided, otherwise use sensible defaults for production builds
+const rawPort = process.env.PORT || (process.env.NODE_ENV === "production" ? "3000" : undefined);
+const basePath = process.env.BASE_PATH || (process.env.NODE_ENV === "production" ? "/" : undefined);
 
-if (!rawPort) {
+// Only validate if not in production (where defaults are used)
+if (!rawPort && process.env.NODE_ENV !== "production") {
   throw new Error(
     "PORT environment variable is required but was not provided.",
   );
 }
 
-const port = Number(rawPort);
+const port = rawPort ? Number(rawPort) : 3000;
 
 if (Number.isNaN(port) || port <= 0) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
 }
 
-const basePath = process.env.BASE_PATH;
-
-if (!basePath) {
+if (!basePath && process.env.NODE_ENV !== "production") {
   throw new Error(
     "BASE_PATH environment variable is required but was not provided.",
   );
 }
 
 export default defineConfig({
-  base: basePath,
+  base: basePath || "/",
   plugins: [
     mockupPreviewPlugin(),
     react(),
