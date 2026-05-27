@@ -1,17 +1,17 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Check, CheckCircle2, Star, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import couplePhoto from "@assets/ChatGPT_Image_27_de_mai._de_2026,_10_49_44_1779898371334.png";
 import mapaImage from "@assets/ChatGPT_Image_26_de_mai._de_2026,_21_24_48_1779898414695.png";
 
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -21,7 +21,7 @@ const staggerContainer = {
   },
 };
 
-const staggerItem = {
+const staggerItem: Variants = {
   hidden: { opacity: 0, x: -20 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
@@ -55,7 +55,7 @@ export default function SalesPage() {
             <Button 
               onClick={goToCheckout}
               size="lg" 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 text-sm md:text-base px-8 py-6 h-auto rounded-full font-semibold tracking-wide shadow-[0_0_30px_-5px_rgba(201,169,110,0.4)] hover:shadow-[0_0_40px_-5px_rgba(201,169,110,0.6)] transition-all duration-300 hover:scale-105"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 text-sm md:text-base px-8 py-6 h-auto rounded-full font-semibold tracking-wide shadow-[0_0_30px_-5px_rgba(201,169,110,0.3)]"
             >
               QUERO SAIR DO AUTOMÁTICO EMOCIONAL
             </Button>
@@ -86,7 +86,7 @@ export default function SalesPage() {
                 "de começar animada e não conseguir manter constância",
                 "de saber que algo emocional está travando sua vida"
               ].map((item, i) => (
-                <motion.li key={i} variants={staggerItem} className="pl-6 relative before:content-[''] before:absolute before:left-[-5px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:bg-primary">
+                <motion.li key={i} variants={staggerItem} className="pl-6 relative before:content-[''] before:absolute before:left-[-5px] before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full before:bg-primary/50">
                   {item}
                 </motion.li>
               ))}
@@ -100,7 +100,7 @@ export default function SalesPage() {
                 onClick={goToCheckout}
                 size="lg" 
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-sm md:text-base px-8 py-6 h-auto rounded-full font-semibold tracking-wide transition-all duration-300"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-sm md:text-base px-8 py-6 h-auto rounded-full font-semibold tracking-wide transition-all"
               >
                 QUERO SAIR DO AUTOMÁTICO EMOCIONAL
               </Button>
@@ -181,7 +181,7 @@ export default function SalesPage() {
           <motion.div variants={fadeInUp} className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-serif text-primary">Quando existe excesso de pensamentos…</h2>
             <p className="text-xl leading-relaxed text-foreground/90">
-              a mente entra em ruído emocional. E quando o ruído emocional domina: a clareza diminui, a ansiedade aumenta, o emocional pesa, o comportamento vira automático, e a autossabotagem começa a se repetir.
+              a mente entra em ruído emocional. E quando o ruído emocional domina: a clareza diminui, a ansiedade aumenta, o emocional pesa, o comportamento vira automático, e a autossabotagem toma conta.
             </p>
           </motion.div>
           <motion.div variants={fadeInUp} className="p-8 rounded-2xl bg-card border border-primary/20 space-y-6">
@@ -540,7 +540,7 @@ export default function SalesPage() {
                 },
                 {
                   q: "Já pratiquei Ho'oponopono antes.",
-                  a: "Muitas pessoas apenas repetem frases sem entender o que limpar, como aplicar, e como transformar isso em mudança prática. É exatamente isso que o Ho'oponopono do Jeito Certo resolve."
+                  a: "Muitas pessoas apenas repetem frases sem entender o que limpar, como aplicar, e como transformar isso em mudança prática. É exatamente isso que o Ho'oponopono do Jeito Certo ensina."
                 }
               ].map((item, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="border border-primary/20 rounded-xl px-6 bg-card data-[state=open]:border-primary/50 transition-colors">
@@ -572,7 +572,7 @@ export default function SalesPage() {
           </div>
           <h2 className="text-4xl md:text-5xl font-serif text-primary mb-8">Garantia Incondicional de 7 Dias</h2>
           <p className="text-xl md:text-2xl text-foreground/80 font-light leading-relaxed max-w-2xl mx-auto">
-            Você pode entrar, acessar os conteúdos, conhecer a Tribo por dentro e aplicar as primeiras práticas. Se sentir que não faz sentido para você: basta solicitar o reembolso dentro de 7 dias. Sem burocracia. Sem risco.
+            Você pode entrar, acessar os conteúdos, conhecer a Tribo por dentro e aplicar as primeiras práticas. Se sentir que não faz sentido para você: basta solicitar o reembolso dentro de 7 dias.
           </p>
         </motion.div>
       </section>
@@ -599,7 +599,7 @@ export default function SalesPage() {
             <Button 
               onClick={goToCheckout}
               size="lg" 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg md:text-xl px-12 py-8 h-auto rounded-full font-semibold tracking-wide shadow-[0_0_40px_-5px_rgba(201,169,110,0.5)] hover:shadow-[0_0_50px_-5px_rgba(201,169,110,0.7)] transition-all duration-300 hover:scale-105"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg md:text-xl px-12 py-8 h-auto rounded-full font-semibold tracking-wide shadow-[0_0_40px_-5px_rgba(201,169,110,0.3)]"
             >
               QUERO ENTRAR PARA A TRIBO AGORA
             </Button>
