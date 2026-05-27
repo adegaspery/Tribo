@@ -27,8 +27,8 @@ const staggerItem = {
 };
 
 export default function SalesPage() {
-  const scrollToPricing = () => {
-    document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
+  const goToCheckout = () => {
+    window.open("https://hooponoponodojeitocerto.com.br/tribo", "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -53,7 +53,7 @@ export default function SalesPage() {
           </motion.p>
           <motion.div variants={fadeInUp} className="pt-8">
             <Button 
-              onClick={scrollToPricing}
+              onClick={goToCheckout}
               size="lg" 
               className="bg-primary text-primary-foreground hover:bg-primary/90 text-sm md:text-base px-8 py-6 h-auto rounded-full font-semibold tracking-wide shadow-[0_0_30px_-5px_rgba(201,169,110,0.4)] hover:shadow-[0_0_40px_-5px_rgba(201,169,110,0.6)] transition-all duration-300 hover:scale-105"
             >
@@ -97,7 +97,7 @@ export default function SalesPage() {
             </div>
             <div className="pt-12 text-center">
               <Button 
-                onClick={scrollToPricing}
+                onClick={goToCheckout}
                 size="lg" 
                 variant="outline"
                 className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-sm md:text-base px-8 py-6 h-auto rounded-full font-semibold tracking-wide transition-all duration-300"
@@ -597,6 +597,7 @@ export default function SalesPage() {
           </motion.p>
           <motion.div variants={fadeInUp} className="pt-8">
             <Button 
+              onClick={goToCheckout}
               size="lg" 
               className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg md:text-xl px-12 py-8 h-auto rounded-full font-semibold tracking-wide shadow-[0_0_40px_-5px_rgba(201,169,110,0.5)] hover:shadow-[0_0_50px_-5px_rgba(201,169,110,0.7)] transition-all duration-300 hover:scale-105"
             >
