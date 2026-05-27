@@ -1,0 +1,5 @@
+{
+  "buildCommand": "pnpm run build",
+  "outputDirectory": "artifacts/tribo-vendas/dist/public",
+  "installCommand": "pnpm install --frozen-lockfile"
+}
