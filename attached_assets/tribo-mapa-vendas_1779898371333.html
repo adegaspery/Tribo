@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribo Hooponopower - Mapa Personalizado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: white;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 100px 30px;
+            text-align: center;
+            background: white;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: #534AB7;
+        }
+
+        .hero .subtitle {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+
+        .cta-primary {
+            background: #534AB7;
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(83, 74, 183, 0.25);
+        }
+
+        .cta-primary:hover {
+            background: #3C3489;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(83, 74, 183, 0.35);
+        }
+
+        /* ===== SEÇÃO PADRÃO ===== */
+        section {
+            padding: 60px 30px;
+            background: white;
+            border-bottom: 1px solid #f0ebe0;
+        }
+
+        section:first-of-type {
+            border-top: 1px solid #f0ebe0;
+        }
+
+        h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        h3 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 25px 0 15px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* ===== TALVEZ ===== */
+        .talvez {
+            background: #faf8f3;
+            padding: 40px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .talvez h3 {
+            margin-top: 0;
+            color: #534AB7;
+            font-size: 20px;
+        }
+
+        .talvez-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .talvez-list li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            color: #555;
+        }
+
+        .talvez-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #534AB7;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* ===== BLOCO PROBLEMA ===== */
+        .problema-card {
+            background: #fef5f0;
+            padding: 40px;
+            border-radius: 8px;
+            border-left: 5px solid #D85A30;
+            margin: 40px 0;
+        }
+
+        .problema-card h3 {
+            color: #D85A30;
+            margin-top: 0;
+        }
+
+        .problema-card p {
+            color: #555;
+        }
+
+        /* ===== NOVA CRENÇA ===== */
+        .nova-crenca {
+            background: white;
+            margin: 40px 0;
+        }
+
+        .nova-crenca h3 {
+            color: #534AB7;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        /* ===== TESTA ===== */
+        .testa-section {
+            background: #f5f2eb;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 40px 0;
+            border: 1px solid #e8e3d8;
+        }
+
+        .testa-section h3 {
+            margin-top: 0;
+        }
+
+        .testa-section p {
+            margin-bottom: 12px;
+        }
+
+        /* ===== MECANISMO ===== */
+        .mecanismo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            .mecanismo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .mecanismo-card {
+            background: #f9f7f2;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e8e3d8;
+        }
+
+        .mecanismo-card h4 {
+            color: #534AB7;
+            font-size: 18px;
+            margin: 0 0 15px 0;
+        }
+
+        .mecanismo-card p {
+            margin-bottom: 0;
+            color: #666;
+        }
+
+        /* ===== PROVA ===== */
+        .prova-box {
+            background: #faf8f3;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+            border-left: 4px solid #534AB7;
+        }
+
+        .prova-text {
+            font-style: italic;
+            color: #555;
+            margin: 0;
+        }
+
+        .prova-author {
+            font-weight: 600;
+            color: #534AB7;
+            margin: 10px 0 0;
+            font-style: normal;
+            font-size: 14px;
+        }
+
+        /* ===== EXPERT SECTION ===== */
+        .expert-section {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            margin: 50px 0;
+        }
+
+        @media (max-width: 768px) {
+            .expert-section {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+
+        .expert-photo {
+            flex: 0 0 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .expert-photo img {
+            width: 100%;
+            display: block;
+        }
+
+        .expert-content h3 {
+            margin-top: 0;
+            color: #534AB7;
+        }
+
+        /* ===== CHECKLIST ===== */
+        .checklist {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .checklist li {
+            padding: 12px 0 12px 35px;
+            position: relative;
+            color: #555;
+        }
+
+        .checklist li:before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #534AB7;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* ===== COMPARAÇÃO ===== */
+        .comparison-table {
+            margin: 40px 0;
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #e8e3d8;
+        }
+
+        .comparison-table th {
+            background: #f9f7f2;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #faf8f3;
+        }
+
+        /* ===== GARANTIA ===== */
+        .garantia {
+            background: linear-gradient(135deg, #E1F5EE 0%, #c5ebe0 100%);
+            padding: 50px 40px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #0F6E56;
+            margin: 60px 0;
+        }
+
+        .garantia h3 {
+            color: #0F6E56;
+            margin-top: 0;
+        }
+
+        .garantia p {
+            color: #085041;
+            margin-bottom: 10px;
+        }
+
+        /* ===== VISÃO FUTURA ===== */
+        .vision-section {
+            background: #f9f7f2;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .vision-section h3 {
+            margin-top: 0;
+        }
+
+        /* ===== CTA FINAL ===== */
+        .cta-final {
+            background: linear-gradient(135deg, #534AB7 0%, #7a5cbf 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 80px 0 60px;
+        }
+
+        .cta-final h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-final p {
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin: 0 auto 20px;
+            font-size: 17px;
+        }
+
+        .cta-final button {
+            background: white;
+            color: #534AB7;
+            border: none;
+            padding: 18px 55px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .cta-final button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* ===== OBJEÇÕES ===== */
+        .objection {
+            background: #faf8f3;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid #BA7517;
+        }
+
+        .objection strong {
+            color: #BA7517;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .objection p {
+            margin-bottom: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #2c2c2a;
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .subtitle {
+                font-size: 16px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+    <div class="container">
+        <h1>Você Não Está Falhando Consigo Mesma.<br><span>Está Apenas Presa em um Padrão Emocional Invisível.</span></h1>
+        <p class="subtitle">Descubra como o Ho'oponopono do Jeito Certo ajuda mulheres emocionalmente cansadas a reduzirem o ruído emocional, recuperarem clareza e começarem a transformar sua vida sem viver em guerra consigo mesmas — com o apoio de mentores que entendem exatamente o que você vive.</p>
+        <button class="cta-primary">QUERO ENTRAR PARA A TRIBO</button>
+    </div>
+</div>
+
+<!-- ===== TALVEZ ===== -->
+<section>
+    <div class="container">
+        <h2>Talvez você não esteja cansada apenas de uma coisa.</h2>
+        <p style="margin-bottom: 25px;">Talvez esteja cansada:</p>
+        <div class="talvez">
+            <ul class="talvez-list">
+                <li>da culpa e da autossabotagem repetida</li>
+                <li>da mente acelerada mesmo quando o corpo está cansado</li>
+                <li>de prometer que "próxima semana vai ser diferente" e voltar aos mesmos ciclos</li>
+                <li>de tentar controlar tudo o tempo inteiro</li>
+                <li>de sentir vergonha de si mesma</li>
+                <li>de evitar situações, pessoas e oportunidades</li>
+                <li>de viver cansada emocionalmente</li>
+                <li>de começar animada e não conseguir manter</li>
+                <li>de saber que algo está travando sua vida mas não conseguir identificar o quê</li>
+                <li>de ter tentado tudo — dietas, motivação, força de vontade — e os padrões sempre voltarem</li>
+            </ul>
+        </div>
+        <p style="margin-top: 30px; font-size: 18px; color: #1a1a1a;">E no fundo…</p>
+        <p style="font-size: 18px; font-weight: 600; color: #534AB7;">talvez o que você mais queira hoje não seja apenas resultado externo.</p>
+        <p style="font-size: 18px; color: #1a1a1a;"><strong>Talvez você queira: paz.</strong></p>
+    </div>
+</section>
+
+<!-- ===== PROBLEMA ===== -->
+<section>
+    <div class="container">
+        <h2>O Problema Não Está Apenas Onde Você Pensa</h2>
+        
+        <div class="problema-card">
+            <h3>O problema não está na falta de vontade.</h3>
+            <p><strong>Está no automático emocional por trás dele.</strong></p>
+            <p>Muitas mulheres passam anos tentando controlar apenas comportamento. Mas ignoram algo importante:</p>
+            <p style="color: #333; font-weight: 600; margin-top: 20px;">Emoções repetidas geram comportamentos automáticos.</p>
+            <p>E quando sentimentos como ansiedade, carência, vazio, sobrecarga, tristeza e excesso de pensamentos continuam ativos… o corpo e a mente tentam aliviar isso rapidamente.</p>
+            <p>Por isso tantas pessoas conseguem mudar por alguns dias, mas depois voltam exatamente para os mesmos ciclos.</p>
+            <p style="font-weight: 600; color: #D85A30;">Porque a raiz emocional continua ativa.</p>
+        </div>
+
+        <div class="prova-box">
+            <p class="prova-text">"Hoje consigo deitar a cabeça no travesseiro sem a mente acelerada. Isso não acontecia há mais de vinte anos."</p>
+            <div class="prova-author">— Fátima Almeida</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== RUÍDO EMOCIONAL ===== -->
+<section>
+    <div class="container">
+        <h2>Quando existe excesso de pensamentos…</h2>
+        <p>a mente entra em ruído emocional.</p>
+        
+        <div class="problema-card" style="border-left-color: #BA7517;">
+            <p>E quando o ruído emocional domina:</p>
+            <ul class="talvez-list">
+                <li>a clareza diminui</li>
+                <li>a ansiedade aumenta</li>
+                <li>o emocional pesa</li>
+                <li>o comportamento vira automático</li>
+                <li>e a autossabotagem começa a se repetir</li>
+            </ul>
+            <p style="margin-top: 20px;">É por isso que muitas pessoas dizem:</p>
+            <p style="font-style: italic; color: #333; margin-top: 15px;"><strong>"Eu sei o que deveria fazer… mas parece que algo me puxa de volta."</strong></p>
+            <p style="margin-top: 15px;">Na maioria das vezes: <strong>isso não é falta de força de vontade.</strong></p>
+            <p><strong>São padrões emocionais repetitivos agindo no automático.</strong></p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TESTA ===== -->
+<section>
+    <div class="container">
+        <h2>Antes de rejeitar isso… testa.</h2>
+        <div class="testa-section">
+            <p><strong>Testa observar</strong> suas emoções antes de reagir.</p>
+            <p><strong>Testa perceber</strong> quantas vezes a ansiedade tenta buscar alívio automático.</p>
+            <p><strong>Testa aplicar</strong> a limpeza antes de agir no impulso.</p>
+            <p><strong>Testa perceber</strong> como sua mente responde quando o ruído emocional diminui.</p>
+            <p style="margin-bottom: 0;"><strong>Talvez você descubra que o problema nunca foi apenas comportamento.</strong></p>
+            <p><strong>Talvez exista apenas um padrão emocional repetindo silenciosamente há anos.</strong></p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== MECANISMO ===== -->
+<section>
+    <div class="container">
+        <h2>Foi por isso que criamos a Tribo Hooponopower.</h2>
+        <p style="font-size: 17px; margin-bottom: 30px;">Um programa completo que ajuda você a:</p>
+        
+        <div class="mecanismo-grid">
+            <div class="mecanismo-card">
+                <h4>✔ Identificar pensamentos defeituosos</h4>
+                <p>Descobrir o que realmente está sustentando os padrões emocionais repetitivos.</p>
+            </div>
+            <div class="mecanismo-card">
+                <h4>✔ Limpar memórias emocionais</h4>
+                <p>Reduzir o ruído, a ansiedade, a carga interna e os impulsos automáticos.</p>
+            </div>
+            <div class="mecanismo-card">
+                <h4>✔ Acessar clareza</h4>
+                <p>Alcançar o Limite Zero — o estado onde a mente desacelera e você percebe com clareza.</p>
+            </div>
+            <div class="mecanismo-card">
+                <h4>✔ Agir com inspiração</h4>
+                <p>Transformar isso em mudança prática — comportamentos novos, decisões diferentes, vida transformada.</p>
+            </div>
+        </div>
+
+        <h2 style="margin-top: 50px;">Como Funciona Exatamente</h2>
+
+        <h3>1. Identificar o Problema</h3>
+        <p>Você responde o <strong>Mapa Personalizado</strong> — um questionário que revela seus padrões emocionais invisíveis, quais memórias estão influenciando você e onde está o nível de ruído emocional.</p>
+
+        <h3>2. Limpar o Sentimento</h3>
+        <p>Aplicar Ho'oponopono corretamente — não apenas repetir frases, mas trabalhar a correção emocional de verdade através do método estruturado.</p>
+
+        <h3>3. Acessar o Limite Zero</h3>
+        <p>Segundo os havaianos, existe um estado onde o ruído emocional diminui… e você começa a perceber com mais silêncio, clareza e direção.</p>
+
+        <h3>4. Agir Através da Ação Inspirada</h3>
+        <p>Quando existe clareza, as decisões mudam. O comportamento muda. E a vida começa a mudar junto.</p>
+
+        <div class="prova-box">
+            <p class="prova-text">"Em vez de reclamar, comecei a agradecer. O sentimento muda na hora."</p>
+            <div class="prova-author">— Fabiana</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HISTÓRIA ===== -->
+<section style="background: #f9f7f2;">
+    <div class="container">
+        <h2>Nós Também Tentamos Controlar Apenas o Lado Externo</h2>
+        
+        <div class="expert-section">
+            <div class="expert-photo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="300" height="380" style="background: #ddd;">
+                    <text x="150" y="190" text-anchor="middle" dy=".3em" font-size="16" fill="#666">Foto do Casal</text>
+                </svg>
+            </div>
+            <div class="expert-content">
+                <h3>Nossa História é Sua História</h3>
+                <p>Por muito tempo acreditamos que o problema era apenas alimentação, motivação, rotina, disciplina.</p>
+                <p>Mas percebemos que estávamos tentando aliviar emoções sem perceber. E enquanto o emocional continuava igual… os padrões continuavam voltando.</p>
+                <p>A comida, o comportamento — tudo funcionava como anestesia emocional silenciosa.</p>
+                <p><strong>Foi quando começamos a aplicar Ho'oponopono de forma profunda e prática que nossa relação com nós mesmos começou a mudar.</strong></p>
+                <p>Não apenas no corpo. Mas na mente, nas emoções, na clareza, e na forma como vivíamos.</p>
+                <p style="font-weight: 600; color: #534AB7; font-size: 17px;">Nós dois eliminamos 40kg através dos princípios que ensinamos hoje.</p>
+                <p><strong>E a transformação começou: de dentro para fora.</strong></p>
+                <p style="margin-top: 30px; font-size: 17px; color: #1a1a1a;"><strong>Hoje somos conhecidos como:</strong></p>
+                <p style="font-size: 18px; font-weight: 700; color: #534AB7;">O Casal Ho'oponopono</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== AUTORIDADE ===== -->
+<section>
+    <div class="container">
+        <h2>Nossa Jornada de Impacto</h2>
+        <ul class="checklist">
+            <li><strong>Há mais de 10 anos</strong> nossa missão é "Espalhar Ho'oponopono pelo mundo"</li>
+            <li>Mais de 45 mil livros vendidos</li>
+            <li>Mais de 3 mil alunos digitais</li>
+            <li>Treinamento especial com Dr. Joe Vitale nos Estados Unidos</li>
+            <li>Eventos realizados em 27 cidades</li>
+            <li>Centenas de alunos acompanhados dentro da Tribo Hooponopower</li>
+            <li>Milhares de vidas impactadas através do Ho'oponopono do Jeito Certo</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ===== O MAPA ===== -->
+<section style="background: #f9f7f2;">
+    <div class="container">
+        <h2>O Mapa Personalizado é um dos Ativos Mais Importantes</h2>
+        <p>Porque muitas pessoas até querem mudar… mas não sabem exatamente:</p>
+        <ul class="talvez-list">
+            <li>o que limpar</li>
+            <li>por onde começar</li>
+            <li>ou quais padrões emocionais estão realmente ativos</li>
+        </ul>
+        
+        <p style="margin-top: 30px; font-size: 17px; font-weight: 600; color: #534AB7;">O Mapa foi criado justamente para trazer <strong>clareza emocional.</strong></p>
+        
+        <p style="margin-top: 25px;">Ele ajuda você a identificar:</p>
+        <ul class="talvez-list">
+            <li>quais memórias emocionais precisam de atenção</li>
+            <li>quais áreas estão mais travadas</li>
+            <li>quais padrões estão se repetindo</li>
+            <li>e qual direção seguir dentro do processo</li>
+        </ul>
+
+        <div class="prova-box">
+            <p class="prova-text">"Já pratico Ho'oponopono… mas com essas informações tô de boca aberta até agora."</p>
+            <div class="prova-author">— Maria Claudete</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== O QUE VOCÊ RECEBE ===== -->
+<section>
+    <div class="container">
+        <h2>Ao Entrar para a Tribo Hooponopower Você Recebe:</h2>
+        <ul class="checklist">
+            <li>Curso Completo de Ho'oponopono</li>
+            <li>Método Ho'oponopono do Jeito Certo (estruturado e prático)</li>
+            <li><strong>Mapa Personalizado</strong> — sua clareza emocional visual</li>
+            <li>Biblioteca Completa de Limpezas (áudio + orientações)</li>
+            <li>Ferramentas práticas para: ansiedade, autoestima, prosperidade, relacionamentos, clareza, saúde emocional</li>
+            <li>Comunidade Exclusiva com mentores e pessoas em jornada similar</li>
+            <li>Acompanhamento direto com André e Aline</li>
+            <li>Conteúdos e práticas guiadas</li>
+            <li>Atualizações contínuas</li>
+            <li>Suporte durante 1 ano</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ===== PROVAS ===== -->
+<section style="background: #f9f7f2;">
+    <div class="container">
+        <h2>Pessoas Reais. Transformações Reais.</h2>
+
+        <div class="prova-box">
+            <p class="prova-text">"Consegui tirar coisas que estavam amontoadas há muito tempo. Foi uma vitória."</p>
+            <div class="prova-author">— Alice</div>
+        </div>
+
+        <div class="prova-box">
+            <p class="prova-text">"Em uma semana ele apareceu no Facebook."</p>
+            <div class="prova-author">— Heliani</div>
+        </div>
+
+        <div class="prova-box">
+            <p class="prova-text">"Há duas semanas encontrei uma pessoa… e estou iniciando um relacionamento sério."</p>
+            <div class="prova-author">— Ester, 67 anos</div>
+        </div>
+
+        <div class="prova-box">
+            <p class="prova-text">"Foi o melhor mês da história da empresa."</p>
+            <div class="prova-author">— Fabiana</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== OBJEÇÕES ===== -->
+<section>
+    <div class="container">
+        <h2>Talvez Você Esteja Pensando…</h2>
+
+        <div class="objection">
+            <strong>"Já tentei de tudo."</strong>
+            <p>Talvez o problema nunca tenha sido apenas comportamento. Talvez exista um padrão emocional repetindo silenciosamente há anos — e você nunca trabalhou a raiz de verdade.</p>
+        </div>
+
+        <div class="objection">
+            <strong>"Eu começo animada e depois paro."</strong>
+            <p>A Tribo foi criada justamente para ajudar você a manter clareza, ter direção, receber acompanhamento, e aplicar o método no dia a dia real — não sozinha.</p>
+        </div>
+
+        <div class="objection">
+            <strong>"Isso parece abstrato."</strong>
+            <p>Nosso foco não é espiritualidade vazia. Nosso foco é <strong>transformação prática através da correção emocional.</strong> O Mapa Personalizado torna isso visual e concreto.</p>
+        </div>
+
+        <div class="objection">
+            <strong>"Não tenho tempo."</strong>
+            <p>As práticas foram desenvolvidas para serem simples, aplicáveis, e possíveis dentro da rotina real. Você não precisa de horas — precisa de direção.</p>
+        </div>
+
+        <div class="objection">
+            <strong>"Já pratiquei Ho'oponopono antes."</strong>
+            <p>Muitas pessoas apenas repetem frases sem entender o que limpar, como aplicar, e como transformar isso em mudança prática. O Ho'oponopono do Jeito Certo resolve exatamente isso.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== GARANTIA ===== -->
+<section>
+    <div class="container">
+        <div class="garantia">
+            <h3>Garantia Incondicional de 7 Dias</h3>
+            <p>Você pode entrar, acessar os conteúdos, conhecer a Tribo por dentro e aplicar as primeiras práticas.</p>
+            <p>Se sentir que não faz sentido para você: basta solicitar o reembolso dentro de 7 dias.</p>
+            <p style="font-weight: 600; margin-bottom: 0;">Sem burocracia. Sem risco.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== COMPARAÇÃO ===== -->
+<section style="background: #f9f7f2;">
+    <div class="container">
+        <h2>Como Isso é Diferente</h2>
+        <div class="comparison-table">
+            <table>
+                <tr>
+                    <th>Outras Soluções</th>
+                    <th>Tribo Hooponopower</th>
+                </tr>
+                <tr>
+                    <td>Foco apenas no sintoma externo</td>
+                    <td>Atua na raiz emocional</td>
+                </tr>
+                <tr>
+                    <td>Motivação temporária</td>
+                    <td>Clareza + ação inspirada</td>
+                </tr>
+                <tr>
+                    <td>Repetição automática de frases</td>
+                    <td>Método estruturado e prático</td>
+                </tr>
+                <tr>
+                    <td>Espiritualidade abstrata</td>
+                    <td>Aplicação emocional concreta</td>
+                </tr>
+                <tr>
+                    <td>Jornada solitária</td>
+                    <td>Comunidade + acompanhamento</td>
+                </tr>
+                <tr>
+                    <td>Sem direção clara</td>
+                    <td>Mapa personalizado e visual</td>
+                </tr>
+                <tr>
+                    <td>Suporte genérico</td>
+                    <td>Mentores que entendem sua história</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ===== VISÃO FUTURA ===== -->
+<section>
+    <div class="container">
+        <h2>Imagine Voltar a…</h2>
+        <div class="vision-section">
+            <ul class="talvez-list">
+                <li>dormir sem a mente acelerada</li>
+                <li>passar por um dia difícil sem descontar tudo em ciclos automáticos</li>
+                <li>sentir mais leveza emocional</li>
+                <li>olhar para si mesma com menos culpa</li>
+                <li>sentir o corpo e a mente respirarem sem tanta pressão interna</li>
+                <li>recuperar autoestima e clareza</li>
+                <li>perceber que sua vida começou a destravar novamente</li>
+            </ul>
+            <p style="margin-top: 30px; font-size: 17px; font-weight: 600; color: #534AB7;">Talvez seja exatamente isso que você estava procurando há anos.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section style="background: white; border: none; padding: 0;">
+    <div class="cta-final">
+        <div class="container">
+            <h2>Você Não Precisa Continuar Tentando Carregar Tudo Sozinha</h2>
+            <p>Talvez o problema nunca tenha sido falta de força de vontade.</p>
+            <p>Talvez exista apenas um automático emocional repetindo silenciosamente os mesmos ciclos há anos.</p>
+            <p>E talvez… pela primeira vez… você esteja começando a olhar para a raiz real disso.</p>
+            <p style="margin-top: 30px; font-weight: 600;">Com apoio. Com direção. Com clareza. E com pessoas que já viveram essa transformação.</p>
+            <button class="cta-primary" style="background: white; color: #534AB7; box-shadow: 0 4px 15px rgba(255,255,255,0.25);">QUERO ENTRAR PARA A TRIBO HOOPONOPOWER AGORA</button>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>&copy; 2026 Tribo Hooponopower. Todos os direitos reservados.</p>
+    <p>Ho'oponopono do Jeito Certo — Transformação Emocional Prática</p>
+</footer>
+
+</body>
+</html>
